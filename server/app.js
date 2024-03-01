@@ -30,7 +30,12 @@ app.get("/", (req, res) => {
 io.on("connection", (socket) => {
   console.log("User connected");
   console.log("Id", socket.id);
-  
+  io.on("connection",(socket)=>{
+    console.log("user connected ");
+  })
+  io.on("disconnection",(socket)=>{
+    console.log("user connected ");
+  })
 });
 server.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
